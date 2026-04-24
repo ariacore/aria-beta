@@ -1,31 +1,56 @@
-# ARIA Architecture
+# ⌬ ARIA Architecture
 
-This document describes the architectural design of the ARIA (Autonomous Reasoning & Interaction Agent) system.
+<p align="center">
+    <picture>
+        <img src="./assets/aria-logo.png" alt="ARIA Logo" width="120">
+    </picture>
+</p>
+
+This document details the architectural foundation of the **ARIA (Autonomous Reasoning & Interaction Agent)** system.
+
+---
 
 ## 1. Core Paradigm: Pure Vision
-Unlike other automation tools that rely on DOM parsing, CSS selectors, or accessibility trees, ARIA relies entirely on **Pure Vision**. 
-1. The agent takes a screenshot of the computer.
-2. The screenshot is sent to a Vision LLM (e.g., Anthropic Claude 3.5 Sonnet, GPT-4o, or Ollama Qwen2-VL) along with the user's natural language goal.
-3. The LLM determines the next action (e.g., "Move mouse to [x, y] and left click").
-4. ARIA executes the action natively on the OS.
-5. ARIA takes a verification screenshot to confirm the result.
 
-This loop guarantees that ARIA can automate **any** application: web browsers, native Windows desktop apps, video games, or terminal windows.
+Unlike conventional automation frameworks that rely on DOM parsing, accessibility trees, or UI selectors, ARIA is engineered entirely around **Pure Vision**. 
 
-## 2. Monorepo Package Structure
-The codebase is structured as a Turborepo monorepo:
+### The Perception-Reasoning-Action (PRA) Loop
+1. **Perception**: ARIA captures a high-fidelity screenshot of the current display state.
+2. **Reasoning**: The visual payload, alongside the active goal and procedural memory, is dispatched to a Vision LLM.
+3. **Decision**: The model returns a normalized `AriaToolAction` (e.g., precise `[x, y]` coordinate interaction).
+4. **Action**: The platform adapter translates the action into a native OS hardware interrupt.
+5. **Verification**: A secondary screenshot is captured to validate the delta.
 
-- **`@aria/agent`**: Contains the core loop (`AriaAgent`). Orchestrates screenshots, LLM calls, safety checks, and memory storage.
-- **`@aria/computer`**: The hardware layer. Uses `node-screenshots` for visual capture and platform-specific scripts (PowerShell for Windows, `osascript` for macOS, `xdotool` for Linux) for mouse/keyboard inputs.
-- **`@aria/llm`**: Gateway to multiple LLM providers. Normalizes various API responses into the ARIA Tool Schema.
-- **`@aria/memory`**: Dual-store architecture. Uses SQLite for episodic memory (step-by-step logs, costs, job status) and LanceDB for procedural memory (vector search for successful workflows).
-- **`@aria/security`**: Implements the Safety Gate. Scores actions as `safe`, `sensitive`, or `destructive`. Prompts the user for `destructive` actions.
-- **`@aria/delivery`**: Handles asynchronous reporting. Can send markdown reports locally or interactively stream progress via Telegram.
-- **`aria-cli`**: The Node.js executable that ties it all together into the `aria` command.
+This decoupled architecture guarantees that ARIA can automate **any** GUI surface: browsers, legacy enterprise software, or terminal emulators.
 
-## 3. Meta-Cognition Engine
-When ARIA encounters a UI it doesn't understand, it triggers the `MetaCognitionService`. It will pause its current task, open a web browser, and search the internet or query a smarter model for instructions. Once it succeeds, the workflow is saved to LanceDB. The next time ARIA encounters the same UI, it retrieves the procedural memory and bypasses the search phase.
+## 2. Monorepo Topology
 
-## 4. Execution Modes
-1. **Native Mode**: ARIA runs directly on your host machine.
-2. **Sandboxed Mode** (Docker): ARIA runs inside an Ubuntu Docker container with an Xvfb virtual display and noVNC for remote viewing. Safe for destructive or untrusted tasks.
+The codebase is organized as a strict Turborepo monorepo, separating concerns into discrete, composable packages:
+
+- **`@aria/agent`**: The orchestration layer. Hosts the PRA loop, orchestrates payload generation, coordinates safety gating, and handles memory hydration.
+- **`@aria/computer`**: The abstraction layer for native hardware. Implements platform-specific bindings:
+  - **Windows**: PowerShell `SendKeys` and cursor APIs.
+  - **macOS**: `osascript` (AppleScript) automation.
+  - **Linux**: `xdotool` and `import`/`grim` display capture.
+- **`@aria/llm`**: The universal provider gateway. Normalizes disparate vendor APIs into the unified `ProviderDecision` schema.
+- **`@aria/memory`**: The cognitive persistence layer.
+  - **Episodic**: `node:sqlite` stores step-by-step historical traces, job states, and execution costs.
+  - **Procedural**: `LanceDB` acts as the vector store for semantic retrieval of successful workflows.
+- **`@aria/security`**: The authorization boundary. Evaluates requested actions against the configured `RiskLevel` and enforces Human-in-the-Loop constraints.
+- **`@aria/delivery`**: The telemetry transport layer. Pushes state updates asynchronously to Telegram, Webhooks, or SMTP.
+- **`@aria/cli`**: The primary Node.js executable that bootstraps the `AriaAgent` and serves the Terminal User Interface (TUI).
+
+## 3. Cognitive Systems
+
+### Meta-Cognition Engine
+ARIA possesses self-awareness regarding its limitations. If the model computes a confidence score below the `escalationConfidenceThreshold`, the `MetaCognitionService` halts execution. The agent will autonomously escalate the sub-task to a higher-parameter "helper" model, or navigate to a web browser to research the required UI workflow.
+
+### Procedural Memory
+Once ARIA successfully resolves an unknown workflow, it distills the step sequence into a semantic `ProcedureRecord`. This is embedded into LanceDB. Future jobs querying similar goals will inject this procedure into the system prompt, bypassing the research phase.
+
+## 4. Execution Environments
+
+ARIA is designed to run locally, but can be sandboxed for enhanced security.
+
+- **Native Execution**: ARIA executes directly on the host OS, utilizing the active window manager.
+- **Sandboxed Execution**: ARIA is containerized within a headless Linux environment. Utilizing `Xvfb` and `noVNC`, it provides a safe, ephemeral workspace for untrusted operations.

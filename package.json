@@ -12,6 +12,7 @@
     "aria": "node ./apps/aria-cli/dist/index.js"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.31.0",
     "@types/node": "^22.15.29",
     "tsx": "^4.20.3",
     "typescript": "^5.8.3",

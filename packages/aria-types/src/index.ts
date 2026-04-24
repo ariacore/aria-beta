@@ -112,10 +112,25 @@ export interface DeliveryTelegramConfig {
   chatIdEnv: string;
 }
 
+export interface DeliveryEmailConfig {
+  enabled: boolean;
+  smtpUrlEnv: string;
+  fromEnv: string;
+  toEnv: string;
+}
+
+export interface DeliveryWebhookConfig {
+  enabled: boolean;
+  urlEnv: string;
+  secretEnv: string;
+}
+
 export interface DeliveryConfig {
   markdown: boolean;
   html: boolean;
   telegram: DeliveryTelegramConfig;
+  email: DeliveryEmailConfig;
+  webhook: DeliveryWebhookConfig;
 }
 
 export interface PathConfig {

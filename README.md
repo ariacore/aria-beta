@@ -1,86 +1,98 @@
-# ARIA: Autonomous Reasoning & Interaction Agent
+# ⌬ ARIA — Autonomous Reasoning & Interaction Agent
 
-**ARIA** is Jarvis for your computer. 
+<p align="center">
+    <picture>
+        <img src="./assets/aria-logo.png" alt="ARIA Logo" width="180">
+    </picture>
+</p>
 
-Not an AI tool. Not a chatbot. Not a browser extension. ARIA is a digital employee that sits at your computer and works on your behalf. It uses a **Pure Vision** architecture: it takes screenshots of your screen, processes them with a Vision LLM, and directly controls your mouse and keyboard natively across Windows, macOS, and Linux.
+<p align="center">
+  <strong>VISION FOR YOUR COMPUTER</strong>
+</p>
 
-## Features
-- **Pure Vision**: If a human can see it, ARIA can interact with it. No DOM parsing, no brittle CSS selectors. Works in desktop apps, video games, terminals, and web browsers alike.
-- **Cross-Platform Native Input**: Directly sends low-level hardware inputs to Windows (PowerShell), macOS (osascript), and Linux (xdotool).
-- **Meta-Cognition**: If ARIA gets stuck, it pauses, opens a browser, and asks a smarter AI (like Gemini or ChatGPT) for help, then uses LanceDB to memorize the procedure for next time.
-- **Telegram Interface**: Text ARIA from anywhere in the world on Telegram and ask it to perform jobs. It will send you screenshots of its progress.
-- **Safety Gated**: All destructive actions (like Bash commands or deleting files) require explicit Human-in-the-Loop approval.
-- **Job Checkpointing**: Resume halted jobs right where they left off (`aria resume <jobId>`).
-- **Bring Your Own Model**: Works with Anthropic Claude 3.5 Sonnet, OpenAI GPT-4o, Google Gemini, OpenRouter, and fully local Vision models via Ollama.
+<p align="center">
+  <a href="https://github.com/ariacore/aria-beta/actions/workflows/publish.yml"><img src="https://img.shields.io/github/actions/workflow/status/ariacore/aria-beta/publish.yml?branch=main&style=for-the-badge" alt="CI status"></a>
+  <a href="https://github.com/ariacore/aria-beta/releases"><img src="https://img.shields.io/github/v/release/ariacore/aria-beta?include_prereleases&style=for-the-badge" alt="GitHub release"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge" alt="MIT License"></a>
+</p>
 
-## Installation
+**ARIA** is a *personal AI assistant* that natively controls your own devices.
+Unlike browser extensions or DOM-parsing scripts, ARIA relies on **Pure Vision**. If a human can see it, ARIA can interact with it. It captures the screen, processes it with a state-of-the-art vision language model, and executes native hardware inputs across Windows, macOS, and Linux.
 
-### Prerequisites (Linux Only)
-If you are running ARIA natively on a Linux machine (Ubuntu/Debian, Arch, etc.), you must install the following system dependencies for screenshot capture and input simulation to work:
+If you want a personal, single-user assistant that feels local, fast, and remarkably capable across native applications, video games, terminals, and web browsers, this is it.
+
+[Architecture](ARCHITECTURE.md) · [Contributing](CONTRIBUTING.md)
+
+---
+
+## ⚡ Quick Start
+
+Runtime: **Node 22 LTS or newer**.
+
 ```bash
-# Ubuntu/Debian
-sudo apt-get install imagemagick xdotool
+# Global installation via pnpm (recommended)
+pnpm add -g @aria/cli
 
-# Arch Linux
-sudo pacman -S imagemagick xdotool
+# Run the interactive onboarding wizard
+aria onboard
+
+# Start the background daemon to listen for remote commands (e.g., Telegram)
+aria serve
+
+# Direct execution
+aria run "Open YouTube, search for trending music, and take a screenshot"
 ```
-*(Note: If you are using Wayland, ensure you have `grim` installed for screenshot capture. `xdotool` requires XWayland for input simulation).*
 
-### Setup
+*Upgrading? Run `npm i -g @aria/cli@latest` followed by `aria doctor` to ensure system health.*
+
+## 🌟 Highlights
+
+- **Pure Vision** — If a human can see it, ARIA can click it. No DOM parsing, no brittle CSS selectors. Natively supports desktops, mobile emulators, video games, and terminals.
+- **Cross-Platform Native Input** — Directly dispatches low-level hardware events using Windows (PowerShell), macOS (osascript), and Linux (xdotool).
+- **Meta-Cognition Engine** — When ARIA encounters an unknown interface, it automatically triggers a research phase, opening a browser to search for instructions before resuming the task.
+- **Episodic & Procedural Memory** — Powered by `node:sqlite` for step-by-step audit logs and `LanceDB` for storing successful workflows, allowing ARIA to remember how to solve previously encountered UI problems.
+- **Job Checkpointing** — API rate limit? Computer shutdown? Resume halted workflows instantly from exact step states using `aria resume <jobId>`.
+- **Omni-Channel Delivery** — Receive real-time telemetry, screenshots, and Markdown reports via Telegram, Webhook, or Email.
+
+## 📦 Models & Providers
+
+ARIA supports a wide array of state-of-the-art vision models via built-in provider adapters. 
+Configure your preferred models during `aria onboard`:
+
+- **Anthropic** (`claude-3-5-sonnet-latest`)
+- **OpenAI** (`gpt-4o`)
+- **Google** (`gemini-1.5-pro`)
+- **Local Vision Models** via Ollama (`qwen2-vl`, `llava`)
+
+## 🛡️ Security & Sandboxing
+
+ARIA connects directly to your operating system. Treat untrusted tasks with extreme caution.
+
+- **Human-in-the-Loop (HITL)** — All actions classified as `destructive` (e.g., shell commands, file deletions) require explicit user approval.
+- **Sandboxed Execution** — Run ARIA inside an isolated Ubuntu Docker container complete with an Xvfb virtual display and noVNC.
+- **Artifact Auditing** — Every step ARIA takes is documented with a before-and-after PNG screenshot stored locally in `.aria/artifacts/`.
+
+Run `aria doctor` to audit your security configuration.
+
+## 🛠️ Development
+
+We use `pnpm` and Turborepo for workspace management.
+
 ```bash
-# Clone the repository
-git clone https://github.com/your-username/aria.git
+git clone https://github.com/ariacore/aria-beta.git
 cd aria
 
-# Install dependencies and build
 pnpm install
 pnpm run build
-
-# Initialize your configuration
-pnpm run aria init-config
+pnpm run typecheck
+pnpm run test
 ```
 
-## Usage
+## 🤝 Community & Contributing
 
-You can control ARIA via the CLI or run it as a background service listening to Telegram.
+We welcome pull requests for new providers, platform adapters, and UI improvements. 
+Please review our [Contributing Guidelines](CONTRIBUTING.md) before submitting a PR.
 
-### Direct Run
-```bash
-# Give ARIA a natural language goal
-pnpm run aria run "Open YouTube, search for trending music, and take a screenshot"
-```
+## 📜 License
 
-### Resume a Job
-```bash
-# Resume a job that was paused or halted
-pnpm run aria resume <jobId>
-```
-
-### Telegram Daemon
-```bash
-# Start the background service to listen for Telegram messages
-pnpm run aria serve
-```
-
-## Configuration
-
-ARIA stores its configuration in `aria.config.json` in your workspace root.
-Make sure to configure your LLM provider. By default, it expects Anthropic or a local Ollama model.
-
-```json
-{
-  "defaultProvider": "anthropic",
-  "providers": {
-    "anthropic": {
-      "enabled": true,
-      "model": "claude-3-5-sonnet-latest"
-    }
-  }
-}
-```
-
-## Community & Contributing
-Please see `CONTRIBUTING.md` if you would like to help build the future of autonomous computer-use agents.
-
-## License
-MIT License
+This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.

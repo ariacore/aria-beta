@@ -1,27 +1,74 @@
 # Contributing to ARIA
 
-Welcome to the ARIA open-source project! ARIA is the definitive "Jarvis for your computer" – an autonomous, pure-vision agent that can see your screen, control your mouse and keyboard, and solve complex workflows.
+<p align="center">
+    <picture>
+        <img src="./assets/aria-logo.png" alt="ARIA Logo" width="120">
+    </picture>
+</p>
 
-## Development Setup
+Thank you for your interest in contributing to **ARIA**. This project is built by developers, for developers, aiming to construct the most capable, open-source autonomous agent available. 
 
-1. **Prerequisites**: Node.js 22 LTS, pnpm 9+
-2. **Install**: `pnpm install`
-3. **Build**: `pnpm run build`
-4. **Test**: `pnpm run test`
+Whether you are fixing a bug, adding a new model provider, or improving platform compatibility, your contributions are highly valued.
 
-## Architecture overview
-- **aria-agent**: The core Perception-Reasoning-Action (PRA) loop
-- **aria-computer**: Cross-platform system abstraction (Windows, Linux, macOS)
-- **aria-llm**: Provider gateways for vision models
-- **aria-security**: Action classification and safety gating
+---
 
-## Adding a new Provider
-If you want to add support for a new Vision LLM, create a new file in `packages/aria-llm/src/providers/` that implements the `ProviderAdapter` interface.
+## 🛠️ Development Setup
 
-## Submitting Pull Requests
-1. Fork the repository
-2. Create a feature branch
-3. Ensure `pnpm run test` and `pnpm run typecheck` both pass
-4. Submit a PR describing the changes and why they are necessary.
+The ARIA monorepo is managed with Turborepo and `pnpm`.
 
-We welcome all contributions!
+### Prerequisites
+- Node.js `22.x LTS` or higher
+- `pnpm` `9.x` or higher
+
+### Bootstrap Local Environment
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/ariacore/aria-beta.git
+cd aria
+
+# 2. Install dependencies across all packages
+pnpm install
+
+# 3. Build the monorepo
+pnpm run build
+
+# 4. Verify the build and run unit tests
+pnpm run test
+```
+
+## 🧩 Architectural Overview
+
+Before contributing, please review [ARCHITECTURE.md](ARCHITECTURE.md) for a deep dive into the system design. Key packages include:
+
+- `@aria/agent`: The Perception-Reasoning-Action core.
+- `@aria/computer`: Cross-platform OS adapters.
+- `@aria/llm`: Gateway for Vision LLM providers.
+- `@aria/security`: Action parsing and safety evaluation.
+
+## 🔌 Adding a New Model Provider
+
+ARIA is model-agnostic. To add a new Vision LLM:
+
+1. Navigate to `packages/aria-llm/src/providers/`.
+2. Implement the `ProviderAdapter` interface for your target model.
+3. Ensure the provider normalizes API responses into the standard `ProviderDecision` format.
+4. Add robust unit tests mocking the provider's API.
+5. Export the provider in `packages/aria-llm/src/index.ts`.
+
+## 🔄 Pull Request Lifecycle
+
+To ensure high-quality integrations, please adhere to the following workflow:
+
+1. **Fork & Branch**: Fork the repository and create a descriptive branch name (e.g., `feat/anthropic-caching`, `fix/xdotool-parsing`).
+2. **Commit Conventions**: Use [Conventional Commits](https://www.conventionalcommits.org/).
+3. **Validation**: Ensure your changes pass all CI checks locally:
+   ```bash
+   pnpm run typecheck
+   pnpm run lint
+   pnpm run test
+   ```
+4. **Documentation**: If your change modifies configuration files or the CLI interface, update the respective Markdown files in the documentation suite.
+5. **PR Submission**: Open a PR against the `main` branch. Provide a clear description of the problem, your solution, and any required configuration changes.
+
+We are committed to maintaining a collaborative and respectful open-source community. Welcome to ARIA!
