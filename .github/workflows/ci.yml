@@ -31,7 +31,9 @@ jobs:
       run: pnpm install
       
     - name: Typecheck
-      run: pnpm run typecheck
+      run: |
+        pnpm tsc -b --clean
+        pnpm tsc -b --pretty false
       
     - name: Build
       run: pnpm run build

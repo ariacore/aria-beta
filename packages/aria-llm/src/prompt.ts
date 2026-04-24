@@ -1,4 +1,4 @@
-import type { ProviderPlanRequest } from '@aria/types';
+import type { ProviderPlanRequest, AgentStepRecord } from '@aria/types';
 
 export const decisionSchema = {
   type: 'object',
@@ -40,7 +40,7 @@ export function buildUserPrompt(request: ProviderPlanRequest): string {
   const history = request.history
     .slice(-6)
     .map(
-      (step) =>
+      (step: AgentStepRecord) =>
         `Step ${step.index}: action=${formatAction(step.action.tool, JSON.stringify(step.action.input))}; result=${step.result.message}; confidence=${step.confidence.toFixed(2)}`
     )
     .join('\n');
