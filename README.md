@@ -6,9 +6,6 @@
     </picture>
 </p>
 
-<p align="center">
-  <img src="assets/aria-architecture.png" alt="ARIA Architecture Diagram" width="800">
-</p>
 
 <p align="center">
   <strong>VISION FOR YOUR COMPUTER</strong>
