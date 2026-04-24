@@ -54,6 +54,17 @@ export const defaultConfig: AriaConfig = {
       enabled: false,
       botTokenEnv: 'ARIA_TELEGRAM_BOT_TOKEN',
       chatIdEnv: 'ARIA_TELEGRAM_CHAT_ID'
+    },
+    email: {
+      enabled: false,
+      smtpUrlEnv: 'ARIA_EMAIL_SMTP_URL',
+      fromEnv: 'ARIA_EMAIL_FROM',
+      toEnv: 'ARIA_EMAIL_TO'
+    },
+    webhook: {
+      enabled: false,
+      urlEnv: 'ARIA_WEBHOOK_URL',
+      secretEnv: 'ARIA_WEBHOOK_SECRET'
     }
   }
 };
@@ -125,6 +136,14 @@ export function validateConfig(raw: unknown): AriaConfig {
       telegram: {
         ...defaultConfig.delivery.telegram,
         ...assertRecord(assertRecord(raw.delivery, 'delivery').telegram, 'delivery.telegram')
+      },
+      email: {
+        ...defaultConfig.delivery.email,
+        ...assertRecord(assertRecord(raw.delivery, 'delivery').email, 'delivery.email')
+      },
+      webhook: {
+        ...defaultConfig.delivery.webhook,
+        ...assertRecord(assertRecord(raw.delivery, 'delivery').webhook, 'delivery.webhook')
       }
     }
   };

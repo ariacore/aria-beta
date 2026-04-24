@@ -16,7 +16,7 @@ import { createProvider } from '@aria/llm';
 import { createLogger } from '@aria/logger';
 import { DatabaseMemoryStore } from '@aria/memory';
 import { createSafetyGate } from '@aria/security';
-import type { AriaToolAction, JobRecord, RiskAssessment } from '@aria/types';
+import type { AriaToolAction, JobRecord, RiskAssessment, AgentEvent } from '@aria/types';
 import * as p from '@clack/prompts';
 import pc from 'picocolors';
 import ora from 'ora';
@@ -110,7 +110,7 @@ async function main(): Promise<void> {
       }).start();
 
       const result = await agent.run(goal, {
-        async onEvent(event) {
+        async onEvent(event: AgentEvent) {
           switch (event.type) {
             case 'job_started':
               spinner.text = palette.dim(`Job started: ${event.job.id}`);
@@ -186,7 +186,7 @@ async function main(): Promise<void> {
       });
 
       const result = await agent.resume(jobId, {
-        async onEvent(event) {
+        async onEvent(event: AgentEvent) {
           switch (event.type) {
             case 'job_started':
               console.log(`Resumed job ${event.job.id}`);
@@ -246,7 +246,7 @@ async function main(): Promise<void> {
       console.log('Starting ARIA in background mode (Telegram interface)...');
       
       // Keep process alive and poll
-      await telegram.startPolling(async (text, messageId) => {
+      await telegram.startPolling(async (text: string, messageId: number | string) => {
         console.log(`Received command from Telegram: "${text}"`);
         await telegram.sendMessage(`Received command: "${text}". Starting task...`);
         
@@ -267,7 +267,7 @@ async function main(): Promise<void> {
           });
           
           await agent.run(text, {
-            async onEvent(event) {
+            async onEvent(event: AgentEvent) {
               if (event.type === 'job_completed') {
                 await telegram.sendMessage(renderTelegramCompletion(event.job));
               } else if (event.type === 'job_failed') {
