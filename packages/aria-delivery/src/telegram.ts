@@ -1,4 +1,4 @@
-import type { AriaConfig } from '@aria/types';
+import type { AriaConfig } from '@ariacore/types';
 
 interface TelegramMessageResponse {
   ok: boolean;

@@ -4,7 +4,7 @@ import { resolve } from 'node:path';
 import * as lancedb from '@lancedb/lancedb';
 import { DatabaseSync } from 'node:sqlite';
 
-import type { AgentStepRecord, AriaLogger, JobRecord, JobStatus, MemoryStore, ProcedureRecord } from '@aria/types';
+import type { AgentStepRecord, AriaLogger, JobRecord, JobStatus, MemoryStore, ProcedureRecord } from '@ariacore/types';
 
 export class DatabaseMemoryStore implements MemoryStore {
   private db: DatabaseSync;

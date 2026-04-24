@@ -1,6 +1,6 @@
 import { randomUUID } from 'node:crypto';
 
-import type { AriaLogger } from '@aria/types';
+import type { AriaLogger } from '@ariacore/types';
 
 type LogLevel = 'debug' | 'info' | 'warn' | 'error';
 

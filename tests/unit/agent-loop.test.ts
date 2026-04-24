@@ -2,11 +2,11 @@ import { randomUUID } from 'node:crypto';
 
 import { describe, expect, it } from 'vitest';
 
-import { AriaAgent } from '@aria/agent';
-import { createComputerController } from '@aria/computer';
-import { defaultConfig } from '@aria/config';
-import { createLogger } from '@aria/logger';
-import { createSafetyGate } from '@aria/security';
+import { AriaAgent } from '@ariacore/agent';
+import { createComputerController } from '@ariacore/computer';
+import { defaultConfig } from '@ariacore/config';
+import { createLogger } from '@ariacore/logger';
+import { createSafetyGate } from '@ariacore/security';
 import type {
   ActionExecutionResult,
   AgentStepRecord,
@@ -19,7 +19,7 @@ import type {
   ProviderAdapter,
   ProviderPlanRequest,
   ScreenshotArtifact
-} from '@aria/types';
+} from '@ariacore/types';
 
 class FakeComputer implements ComputerController {
   public async captureScreenshot(): Promise<ScreenshotArtifact> {

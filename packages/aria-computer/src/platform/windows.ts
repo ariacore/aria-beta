@@ -1,6 +1,6 @@
 import { randomUUID } from 'node:crypto';
 
-import type { ActionExecutionResult, ComputerController, DisplayBounds, ScreenAction, ScreenshotArtifact } from '@aria/types';
+import type { ActionExecutionResult, ComputerController, DisplayBounds, ScreenAction, ScreenshotArtifact } from '@ariacore/types';
 
 import { PlatformCommandError } from '../errors.js';
 import { runPowerShellScript } from '../process.js';

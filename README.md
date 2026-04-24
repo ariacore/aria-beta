@@ -13,7 +13,7 @@
 <p align="center">
   <a href="https://github.com/ariacore/aria-beta/actions/workflows/publish.yml"><img src="https://img.shields.io/github/actions/workflow/status/ariacore/aria-beta/publish.yml?branch=main&style=for-the-badge" alt="CI status"></a>
   <a href="https://github.com/ariacore/aria-beta/releases"><img src="https://img.shields.io/github/v/release/ariacore/aria-beta?include_prereleases&style=for-the-badge" alt="GitHub release"></a>
-  <a href="https://www.npmjs.com/package/@aria/cli"><img src="https://img.shields.io/npm/v/@aria/cli?style=for-the-badge&color=cb3837" alt="NPM"></a>
+  <a href="https://www.npmjs.com/package/@ariacore/cli"><img src="https://img.shields.io/npm/v/@ariacore/cli?style=for-the-badge&color=cb3837" alt="NPM"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge" alt="MIT License"></a>
 </p>
 
@@ -22,7 +22,7 @@ Unlike browser extensions or DOM-parsing scripts, ARIA relies on **Pure Vision**
 
 If you want an autonomous, single-user assistant that feels local, fast, and capable of operating any software on your computer, this is it.
 
-[Vision](VISION.md) · [Architecture](ARCHITECTURE.md) · [Contributing](CONTRIBUTING.md) · [NPM Registry](https://www.npmjs.com/package/@aria/cli)
+[Vision](VISION.md) · [Architecture](ARCHITECTURE.md) · [Contributing](CONTRIBUTING.md) · [NPM Registry](https://www.npmjs.com/package/@ariacore/cli)
 
 Preferred setup: run `aria onboard` in your terminal.
 ARIA guides you step by step through setting up your LLM providers, execution mode, and notification channels.
@@ -44,8 +44,8 @@ ARIA is completely provider-agnostic. We currently support:
 Runtime: **Node 22 LTS or newer**.
 
 ```bash
-npm install -g @aria/cli@latest
-# or: pnpm add -g @aria/cli@latest
+npm install -g @ariacore/cli@latest
+# or: pnpm add -g @ariacore/cli@latest
 
 aria onboard
 ```
@@ -106,10 +106,10 @@ Run `aria doctor` to surface risky/misconfigured policies in your environment.
 
 ### Core platform
 
-- **`@aria/agent`**: The PRA loop with checkpointing, error recovery, and tool dispatch.
-- **`@aria/computer`**: The native bridge. `node-screenshots` for visual capture. `xdotool` (Linux), `osascript` (macOS), and `PowerShell` (Windows) for inputs.
-- **`@aria/memory`**: SQLite event-sourcing and LanceDB embeddings.
-- **`@aria/delivery`**: Markdown generation, HTML artifact export, Telegram polling.
+- **`@ariacore/agent`**: The PRA loop with checkpointing, error recovery, and tool dispatch.
+- **`@ariacore/computer`**: The native bridge. `node-screenshots` for visual capture. `xdotool` (Linux), `osascript` (macOS), and `PowerShell` (Windows) for inputs.
+- **`@ariacore/memory`**: SQLite event-sourcing and LanceDB embeddings.
+- **`@ariacore/delivery`**: Markdown generation, HTML artifact export, Telegram polling.
 
 ## Community
 

@@ -1,4 +1,4 @@
-import type { AriaConfig, JobRecord, AgentStepRecord } from '@aria/types';
+import type { AriaConfig, JobRecord, AgentStepRecord } from '@ariacore/types';
 
 export class WebhookTransport {
   public constructor(private readonly config: AriaConfig) {}

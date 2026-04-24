@@ -20,7 +20,7 @@ import type {
   ProviderAdapter,
   ProviderDecision,
   SafetyGate
-} from '@aria/types';
+} from '@ariacore/types';
 
 import { defaultAvailableActions } from './tools.js';
 import { MetaCognitionService } from './meta-cognition.js';

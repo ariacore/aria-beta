@@ -1,4 +1,4 @@
-import type { AriaLogger } from '@aria/types';
+import type { AriaLogger } from '@ariacore/types';
 
 export async function postJson<TResponse>(
   url: string,

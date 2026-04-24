@@ -1,5 +1,5 @@
 import { createTransport } from 'nodemailer';
-import type { AriaConfig, JobRecord, AgentStepRecord } from '@aria/types';
+import type { AriaConfig, JobRecord, AgentStepRecord } from '@ariacore/types';
 import { renderHtmlReport } from './index.js';
 
 export class EmailTransport {

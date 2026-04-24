@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { clampCoordinate, normalizeCoordinate, scaleCoordinate } from '@aria/computer';
+import { clampCoordinate, normalizeCoordinate, scaleCoordinate } from '@ariacore/computer';
 
 describe('coordinate utilities', () => {
   it('scales coordinates between source and destination sizes', () => {

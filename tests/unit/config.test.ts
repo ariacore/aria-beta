@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { defaultConfig, validateConfig } from '@aria/config';
+import { defaultConfig, validateConfig } from '@ariacore/config';
 
 describe('config validation', () => {
   it('accepts a valid partial config and merges defaults', () => {

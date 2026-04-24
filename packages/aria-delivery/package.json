@@ -1,5 +1,5 @@
 {
-  "name": "@aria/delivery",
+  "name": "@ariacore/delivery",
   "version": "0.1.0",
   "type": "module",
   "main": "./dist/index.js",
@@ -11,7 +11,7 @@
     }
   },
   "dependencies": {
-    "@aria/types": "workspace:*",
+    "@ariacore/types": "workspace:*",
     "nodemailer": "^8.0.5"
   },
   "devDependencies": {

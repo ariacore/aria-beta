@@ -6,7 +6,7 @@ import type {
   RiskAssessment,
   SafetyGate,
   RiskLevel
-} from '@aria/types';
+} from '@ariacore/types';
 
 export function classifyAction(action: AriaToolAction, currentUrl?: string | null): RiskAssessment {
   const reasons: string[] = [];

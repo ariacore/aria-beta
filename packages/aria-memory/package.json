@@ -1,5 +1,5 @@
 {
-  "name": "@aria/memory",
+  "name": "@ariacore/memory",
   "version": "0.1.0",
   "type": "module",
   "main": "./dist/index.js",
@@ -11,8 +11,8 @@
     }
   },
   "dependencies": {
-    "@aria/logger": "workspace:*",
-    "@aria/types": "workspace:*",
+    "@ariacore/logger": "workspace:*",
+    "@ariacore/types": "workspace:*",
     "@lancedb/lancedb": "^0.27.2",
     "@types/better-sqlite3": "^7.6.13",
     "better-sqlite3": "^12.9.0"

@@ -1,4 +1,4 @@
-import type { AriaLogger, MetaCognitionConfig, ProviderAdapter, ProviderDecision, ProviderPlanRequest } from '@aria/types';
+import type { AriaLogger, MetaCognitionConfig, ProviderAdapter, ProviderDecision, ProviderPlanRequest } from '@ariacore/types';
 
 export class MetaCognitionService {
   private escalationsUsed = 0;

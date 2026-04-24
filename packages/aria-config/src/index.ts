@@ -1,7 +1,7 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 
-import type { AriaConfig, ProviderName, ProviderSettings } from '@aria/types';
+import type { AriaConfig, ProviderName, ProviderSettings } from '@ariacore/types';
 
 const providerNames: ProviderName[] = [
   'anthropic',

@@ -1,4 +1,4 @@
-import type { AriaLogger, ProviderAdapter, ProviderPlanRequest, ProviderSettings } from '@aria/types';
+import type { AriaLogger, ProviderAdapter, ProviderPlanRequest, ProviderSettings } from '@ariacore/types';
 
 import { requireEnv } from '../env.js';
 import { parseDecision } from '../json.js';

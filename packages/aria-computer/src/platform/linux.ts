@@ -3,7 +3,7 @@ import { mkdtemp, readFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 
-import type { ActionExecutionResult, ComputerController, DisplayBounds, ScreenAction, ScreenshotArtifact } from '@aria/types';
+import type { ActionExecutionResult, ComputerController, DisplayBounds, ScreenAction, ScreenshotArtifact } from '@ariacore/types';
 
 import { PlatformCommandError } from '../errors.js';
 import { commandExists, runCommand } from '../process.js';

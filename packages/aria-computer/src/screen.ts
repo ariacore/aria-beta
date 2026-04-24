@@ -1,4 +1,4 @@
-import type { ComputerController } from '@aria/types';
+import type { ComputerController } from '@ariacore/types';
 
 import { LinuxComputerPlatform } from './platform/linux.js';
 import { MacOsComputerPlatform } from './platform/macos.js';

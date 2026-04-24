@@ -1,4 +1,4 @@
-import type { Coordinate } from '@aria/types';
+import type { Coordinate } from '@ariacore/types';
 
 export function scaleCoordinate(
   coordinate: Coordinate,

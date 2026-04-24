@@ -1,5 +1,5 @@
 {
-  "name": "@aria/agent",
+  "name": "@ariacore/agent",
   "version": "0.1.0",
   "type": "module",
   "main": "./dist/index.js",
@@ -11,14 +11,14 @@
     }
   },
   "dependencies": {
-    "@aria/computer": "workspace:*",
-    "@aria/config": "workspace:*",
-    "@aria/delivery": "workspace:*",
-    "@aria/llm": "workspace:*",
-    "@aria/logger": "workspace:*",
-    "@aria/memory": "workspace:*",
-    "@aria/security": "workspace:*",
-    "@aria/types": "workspace:*"
+    "@ariacore/computer": "workspace:*",
+    "@ariacore/config": "workspace:*",
+    "@ariacore/delivery": "workspace:*",
+    "@ariacore/llm": "workspace:*",
+    "@ariacore/logger": "workspace:*",
+    "@ariacore/memory": "workspace:*",
+    "@ariacore/security": "workspace:*",
+    "@ariacore/types": "workspace:*"
   }
 }
 

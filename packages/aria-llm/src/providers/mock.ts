@@ -1,4 +1,4 @@
-import type { ProviderAdapter, ProviderDecision, ProviderPlanRequest } from '@aria/types';
+import type { ProviderAdapter, ProviderDecision, ProviderPlanRequest } from '@ariacore/types';
 
 export class MockProvider implements ProviderAdapter {
   public readonly name = 'mock';

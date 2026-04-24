@@ -18,15 +18,15 @@
     "sourceMap": true,
     "baseUrl": ".",
     "paths": {
-      "@aria/types": ["packages/aria-types/src/index.ts"],
-      "@aria/logger": ["packages/aria-logger/src/index.ts"],
-      "@aria/config": ["packages/aria-config/src/index.ts"],
-      "@aria/computer": ["packages/aria-computer/src/index.ts"],
-      "@aria/llm": ["packages/aria-llm/src/index.ts"],
-      "@aria/agent": ["packages/aria-agent/src/index.ts"],
-      "@aria/memory": ["packages/aria-memory/src/index.ts"],
-      "@aria/delivery": ["packages/aria-delivery/src/index.ts"],
-      "@aria/security": ["packages/aria-security/src/index.ts"]
+      "@ariacore/types": ["packages/aria-types/src/index.ts"],
+      "@ariacore/logger": ["packages/aria-logger/src/index.ts"],
+      "@ariacore/config": ["packages/aria-config/src/index.ts"],
+      "@ariacore/computer": ["packages/aria-computer/src/index.ts"],
+      "@ariacore/llm": ["packages/aria-llm/src/index.ts"],
+      "@ariacore/agent": ["packages/aria-agent/src/index.ts"],
+      "@ariacore/memory": ["packages/aria-memory/src/index.ts"],
+      "@ariacore/delivery": ["packages/aria-delivery/src/index.ts"],
+      "@ariacore/security": ["packages/aria-security/src/index.ts"]
     }
   }
 }

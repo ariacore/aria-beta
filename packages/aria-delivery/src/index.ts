@@ -1,7 +1,7 @@
 import { mkdir, writeFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 
-import type { AgentStepRecord, AriaConfig, JobRecord } from '@aria/types';
+import type { AgentStepRecord, AriaConfig, JobRecord } from '@ariacore/types';
 
 export function renderMarkdownReport(job: JobRecord, steps: AgentStepRecord[]): string {
   const lines = [

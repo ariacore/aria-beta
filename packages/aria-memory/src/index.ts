@@ -1,7 +1,7 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 
-import type { AgentStepRecord, AriaLogger, JobRecord, JobStatus, MemoryStore, ProcedureRecord } from '@aria/types';
+import type { AgentStepRecord, AriaLogger, JobRecord, JobStatus, MemoryStore, ProcedureRecord } from '@ariacore/types';
 
 interface PersistedJob {
   job: JobRecord;

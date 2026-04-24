@@ -1,4 +1,4 @@
-import type { ProviderAdapter, ProviderPlanRequest } from '@aria/types';
+import type { ProviderAdapter, ProviderPlanRequest } from '@ariacore/types';
 
 export class GroqProvider implements ProviderAdapter {
   public readonly name = 'groq';

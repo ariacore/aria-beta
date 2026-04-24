@@ -3,20 +3,20 @@ import readline from 'node:readline/promises';
 import { stdin as input, stdout as output } from 'node:process';
 import { resolve } from 'node:path';
 
-import { AriaAgent } from '@aria/agent';
-import { createComputerController } from '@aria/computer';
-import { defaultConfig, ensureConfigExists, loadConfig } from '@aria/config';
+import { AriaAgent } from '@ariacore/agent';
+import { createComputerController } from '@ariacore/computer';
+import { defaultConfig, ensureConfigExists, loadConfig } from '@ariacore/config';
 import {
   renderTelegramCompletion,
   renderTelegramProgress,
   TelegramTransport,
   writeDeliveryArtifacts
-} from '@aria/delivery';
-import { createProvider } from '@aria/llm';
-import { createLogger } from '@aria/logger';
-import { DatabaseMemoryStore } from '@aria/memory';
-import { createSafetyGate } from '@aria/security';
-import type { AriaToolAction, JobRecord, RiskAssessment, AgentEvent } from '@aria/types';
+} from '@ariacore/delivery';
+import { createProvider } from '@ariacore/llm';
+import { createLogger } from '@ariacore/logger';
+import { DatabaseMemoryStore } from '@ariacore/memory';
+import { createSafetyGate } from '@ariacore/security';
+import type { AriaToolAction, JobRecord, RiskAssessment, AgentEvent } from '@ariacore/types';
 import * as p from '@clack/prompts';
 import pc from 'picocolors';
 import ora from 'ora';

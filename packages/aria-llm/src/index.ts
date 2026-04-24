@@ -1,4 +1,4 @@
-import type { AriaConfig, AriaLogger, ProviderAdapter, ProviderName, ProviderSettings } from '@aria/types';
+import type { AriaConfig, AriaLogger, ProviderAdapter, ProviderName, ProviderSettings } from '@ariacore/types';
 
 import { AnthropicProvider } from './providers/anthropic.js';
 import { GoogleProvider } from './providers/google.js';

@@ -1,4 +1,4 @@
-import type { ProviderPlanRequest, AgentStepRecord } from '@aria/types';
+import type { ProviderPlanRequest, AgentStepRecord } from '@ariacore/types';
 
 export const decisionSchema = {
   type: 'object',

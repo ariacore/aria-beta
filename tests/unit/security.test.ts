@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 
-import { classifyAction } from '@aria/security';
+import { classifyAction } from '@ariacore/security';
 
 describe('safety classification', () => {
   it('marks bash execution as destructive', () => {

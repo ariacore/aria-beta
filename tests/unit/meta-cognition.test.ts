@@ -1,8 +1,8 @@
 import { describe, expect, it } from 'vitest';
 
-import { createLogger } from '@aria/logger';
-import { MetaCognitionService } from '@aria/agent';
-import type { ProviderAdapter, ProviderPlanRequest } from '@aria/types';
+import { createLogger } from '@ariacore/logger';
+import { MetaCognitionService } from '@ariacore/agent';
+import type { ProviderAdapter, ProviderPlanRequest } from '@ariacore/types';
 
 class StaticProvider implements ProviderAdapter {
   public readonly name = 'mock';

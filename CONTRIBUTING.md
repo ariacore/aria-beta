@@ -41,10 +41,10 @@ pnpm run test
 
 Before contributing, please review [ARCHITECTURE.md](ARCHITECTURE.md) for a deep dive into the system design. Key packages include:
 
-- `@aria/agent`: The Perception-Reasoning-Action core.
-- `@aria/computer`: Cross-platform OS adapters.
-- `@aria/llm`: Gateway for Vision LLM providers.
-- `@aria/security`: Action parsing and safety evaluation.
+- `@ariacore/agent`: The Perception-Reasoning-Action core.
+- `@ariacore/computer`: Cross-platform OS adapters.
+- `@ariacore/llm`: Gateway for Vision LLM providers.
+- `@ariacore/security`: Action parsing and safety evaluation.
 
 ## 🔌 Adding a New Model Provider
 

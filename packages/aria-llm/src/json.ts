@@ -1,4 +1,4 @@
-import type { AriaToolAction, ProviderDecision, ProviderName } from '@aria/types';
+import type { AriaToolAction, ProviderDecision, ProviderName } from '@ariacore/types';
 
 export function parseDecision(raw: string, provider: ProviderName): ProviderDecision {
   const payload = JSON.parse(extractJson(raw)) as {

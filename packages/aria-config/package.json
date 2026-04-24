@@ -1,5 +1,5 @@
 {
-  "name": "@aria/config",
+  "name": "@ariacore/config",
   "version": "0.1.0",
   "type": "module",
   "main": "./dist/index.js",
@@ -11,7 +11,7 @@
     }
   },
   "dependencies": {
-    "@aria/types": "workspace:*"
+    "@ariacore/types": "workspace:*"
   }
 }
 
