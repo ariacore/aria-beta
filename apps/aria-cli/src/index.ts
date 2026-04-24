@@ -21,6 +21,8 @@ import * as p from '@clack/prompts';
 import pc from 'picocolors';
 import ora from 'ora';
 import { palette } from './palette.js';
+import { onboardCommand } from './commands/onboard.js';
+import { chatCommand } from './commands/chat.js';
 
 async function main(): Promise<void> {
   const [command = 'help', ...rest] = process.argv.slice(2);
@@ -32,39 +34,7 @@ async function main(): Promise<void> {
       printUsage();
       return;
     case 'onboard': {
-      console.clear();
-      
-      const logo = `
- █████╗ ██████╗ ██╗ █████╗ 
-██╔══██╗██╔══██╗██║██╔══██╗
-███████║██████╔╝██║███████║
-██╔══██║██╔══██╗██║██╔══██║
-██║  ██║██║  ██║██║██║  ██║
-╚═╝  ╚═╝╚═╝  ╚═╝╚═╝╚═╝  ╚═╝
-`;
-      console.log(pc.cyan(logo));
-      p.intro(pc.bgCyan(pc.black(' ARIA 1.0 - The Autonomous Reasoning & Interaction Agent ')));
-
-      const proceed = await p.confirm({
-        message: 'ARIA is a powerful agent that controls your hardware. I understand this is inherently risky. Continue?',
-        initialValue: true,
-      });
-
-      if (p.isCancel(proceed) || !proceed) {
-        p.cancel('Setup cancelled.');
-        process.exit(0);
-      }
-
-      const configPath = await ensureConfigExists(cwd);
-      
-      p.note(
-        `Checking OS dependencies for ${process.platform}...`,
-        'System Diagnostics'
-      );
-      
-      await ensureSystemDependencies();
-
-      p.outro(pc.green(`ARIA config initialized at ${configPath}. Run ${pc.cyan('aria chat')} to begin.`));
+      await onboardCommand(cwd);
       return;
     }
     case 'doctor': {
@@ -285,10 +255,7 @@ async function main(): Promise<void> {
       return;
     }
     case 'chat': {
-      console.clear();
-      p.intro(pc.bgCyan(pc.black(' ARIA Interactive TUI ')));
-      p.note('Welcome to Jarvis Mode. This interactive TUI is under construction.\nSoon, you will see a persistent sticky status bar and streaming thought output here.', 'Work In Progress');
-      p.outro(pc.green('Type /exit to leave.'));
+      await chatCommand(cwd);
       return;
     }
     default:

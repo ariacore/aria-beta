@@ -88,6 +88,11 @@ export async function ensureConfigExists(cwd: string, explicitPath?: string): Pr
   }
 }
 
+export async function saveConfig(cwd: string, config: AriaConfig, explicitPath?: string): Promise<void> {
+  const configPath = resolveConfigPath(cwd, explicitPath);
+  await writeFile(configPath, `${JSON.stringify(config, null, 2)}\n`, 'utf8');
+}
+
 export function resolveConfigPath(cwd: string, explicitPath?: string): string {
   return explicitPath ? resolve(cwd, explicitPath) : resolve(cwd, 'aria.config.json');
 }
