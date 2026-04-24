@@ -2,7 +2,7 @@
 
 <p align="center">
     <picture>
-        <img src="./assets/aria-logo.png" alt="ARIA Logo" width="500">
+        <img src="./assets/aria-logo.png" alt="ARIA Logo" width="120">
     </picture>
 </p>
 
@@ -110,10 +110,6 @@ Run `aria doctor` to surface risky/misconfigured policies in your environment.
 - **`@aria/computer`**: The native bridge. `node-screenshots` for visual capture. `xdotool` (Linux), `osascript` (macOS), and `PowerShell` (Windows) for inputs.
 - **`@aria/memory`**: SQLite event-sourcing and LanceDB embeddings.
 - **`@aria/delivery`**: Markdown generation, HTML artifact export, Telegram polling.
-
-## Star History
-
-[![Star History Chart](https://api.star-history.com/svg?repos=ariacore/aria-beta&type=Date)](https://star-history.com/#ariacore/aria-beta&Date)
 
 ## Community
 
