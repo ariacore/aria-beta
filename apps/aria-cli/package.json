@@ -1,6 +1,6 @@
 {
   "name": "@ariacore/cli",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "type": "module",
   "bin": {
     "aria": "./dist/index.js"
