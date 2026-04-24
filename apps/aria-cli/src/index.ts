@@ -23,6 +23,7 @@ import ora from 'ora';
 import { palette } from './palette.js';
 import { onboardCommand } from './commands/onboard.js';
 import { chatCommand } from './commands/chat.js';
+import { authCommand } from './commands/auth.js';
 
 async function main(): Promise<void> {
   const [command = 'help', ...rest] = process.argv.slice(2);
@@ -35,6 +36,11 @@ async function main(): Promise<void> {
       return;
     case 'onboard': {
       await onboardCommand(cwd);
+      return;
+    }
+    case 'auth': {
+      const provider = rest[0];
+      await authCommand(cwd, provider);
       return;
     }
     case 'doctor': {
@@ -276,6 +282,7 @@ ${pc.dim('The command line for your digital employee.')}
 ${pc.bold('MOST USED COMMANDS:')}
   ${pc.green('aria run "<goal>"')}        Execute any job headless
   ${pc.green('aria chat')}                Interactive TUI chat (Jarvis mode)
+  ${pc.green('aria auth')}                Login to Codex/Antigravity
   ${pc.green('aria onboard')}             Interactive setup wizard
   ${pc.green('aria doctor')}              System health and auto-fix
   ${pc.green('aria job list')}            See all jobs

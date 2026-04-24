@@ -1,9 +1,13 @@
-# ⌬ ARIA — Autonomous Reasoning & Interaction Agent
+# ⬡ ARIA — Autonomous Reasoning & Interaction Agent
 
 <p align="center">
     <picture>
-        <img src="./assets/aria-logo.png" alt="ARIA Logo" width="120">
+        <img src="file:///C:/Users/tanay/.gemini/antigravity/brain/d3a9a908-a938-40b8-a326-f67889bd12fa/aria_logo_neon_1777040454378.png" alt="ARIA Logo" width="300">
     </picture>
+</p>
+
+<p align="center">
+  <img src="file:///C:/Users/tanay/.gemini/antigravity/brain/d3a9a908-a938-40b8-a326-f67889bd12fa/aria_architecture_glowing_1777040547849.png" alt="ARIA Architecture Diagram" width="800">
 </p>
 
 <p align="center">
