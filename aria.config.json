@@ -1,0 +1,49 @@
+{
+  "defaultProvider": "mock",
+  "providers": {
+    "mock": {
+      "enabled": true,
+      "baseUrl": "mock://local",
+      "model": "mock-vision"
+    },
+    "ollama": {
+      "enabled": true,
+      "baseUrl": "http://127.0.0.1:11434/api/chat",
+      "model": "qwen3.5:9b"
+    }
+  },
+  "execution": {
+    "mode": "native",
+    "captureDisplay": "primary",
+    "screenshotFormat": "png",
+    "maxSteps": 20,
+    "defaultWaitMs": 500
+  },
+  "metaCognition": {
+    "enabled": true,
+    "helperProvider": null,
+    "escalationConfidenceThreshold": 0.45,
+    "maxEscalationsPerJob": 2
+  },
+  "safety": {
+    "requireConfirmationFor": ["destructive", "sensitive"],
+    "blockedDomains": ["banking", "admin", "payment"],
+    "maxCostUsdPerJob": 5,
+    "maxRuntimeMinutes": 20
+  },
+  "paths": {
+    "workspaceRoot": ".",
+    "dataDir": ".aria",
+    "artifactsDir": ".aria/artifacts"
+  },
+  "delivery": {
+    "markdown": true,
+    "html": true,
+    "telegram": {
+      "enabled": false,
+      "botTokenEnv": "ARIA_TELEGRAM_BOT_TOKEN",
+      "chatIdEnv": "ARIA_TELEGRAM_CHAT_ID"
+    }
+  }
+}
+

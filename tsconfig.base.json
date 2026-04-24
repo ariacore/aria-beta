@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    "lib": ["ES2022", "DOM"],
+    "types": ["node"],
+    "strict": true,
+    "noImplicitOverride": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+    "forceConsistentCasingInFileNames": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "baseUrl": ".",
+    "paths": {
+      "@aria/types": ["packages/aria-types/src/index.ts"],
+      "@aria/logger": ["packages/aria-logger/src/index.ts"],
+      "@aria/config": ["packages/aria-config/src/index.ts"],
+      "@aria/computer": ["packages/aria-computer/src/index.ts"],
+      "@aria/llm": ["packages/aria-llm/src/index.ts"],
+      "@aria/agent": ["packages/aria-agent/src/index.ts"],
+      "@aria/memory": ["packages/aria-memory/src/index.ts"],
+      "@aria/delivery": ["packages/aria-delivery/src/index.ts"],
+      "@aria/security": ["packages/aria-security/src/index.ts"]
+    }
+  }
+}

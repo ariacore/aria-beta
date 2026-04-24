@@ -1,0 +1,18 @@
+{
+  "extends": "../../tsconfig.package.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "dist"
+  },
+  "references": [
+    { "path": "../aria-types" },
+    { "path": "../aria-logger" },
+    { "path": "../aria-config" },
+    { "path": "../aria-computer" },
+    { "path": "../aria-security" },
+    { "path": "../aria-memory" },
+    { "path": "../aria-delivery" },
+    { "path": "../aria-llm" }
+  ],
+  "include": ["src/**/*.ts"]
+}

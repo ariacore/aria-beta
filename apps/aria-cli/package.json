@@ -1,0 +1,23 @@
+{
+  "name": "@aria/cli",
+  "version": "0.1.0",
+  "type": "module",
+  "bin": {
+    "aria": "./dist/index.js"
+  },
+  "dependencies": {
+    "@aria/agent": "workspace:*",
+    "@aria/computer": "workspace:*",
+    "@aria/config": "workspace:*",
+    "@aria/delivery": "workspace:*",
+    "@aria/llm": "workspace:*",
+    "@aria/logger": "workspace:*",
+    "@aria/memory": "workspace:*",
+    "@aria/security": "workspace:*",
+    "@aria/types": "workspace:*",
+    "@clack/prompts": "^1.2.0",
+    "cli-table3": "^0.6.5",
+    "ora": "^9.4.0",
+    "picocolors": "^1.1.1"
+  }
+}

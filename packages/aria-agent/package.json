@@ -1,0 +1,24 @@
+{
+  "name": "@aria/agent",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "dependencies": {
+    "@aria/computer": "workspace:*",
+    "@aria/config": "workspace:*",
+    "@aria/delivery": "workspace:*",
+    "@aria/llm": "workspace:*",
+    "@aria/logger": "workspace:*",
+    "@aria/memory": "workspace:*",
+    "@aria/security": "workspace:*",
+    "@aria/types": "workspace:*"
+  }
+}
+

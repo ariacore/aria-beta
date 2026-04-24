@@ -1,0 +1,16 @@
+{
+  "files": [],
+  "references": [
+    { "path": "./packages/aria-types" },
+    { "path": "./packages/aria-logger" },
+    { "path": "./packages/aria-config" },
+    { "path": "./packages/aria-computer" },
+    { "path": "./packages/aria-security" },
+    { "path": "./packages/aria-memory" },
+    { "path": "./packages/aria-delivery" },
+    { "path": "./packages/aria-llm" },
+    { "path": "./packages/aria-agent" },
+    { "path": "./apps/aria-cli" }
+  ]
+}
+
