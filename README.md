@@ -28,9 +28,6 @@ If you want an autonomous, single-user assistant that feels local, fast, and cap
 Preferred setup: run `aria onboard` in your terminal.
 ARIA guides you step by step through setting up your LLM providers, execution mode, and notification channels.
 
-## Sponsors & Backers
-
-*ARIA is community-driven. Sponsor us to get your logo here.*
 
 ## Models (selection + auth)
 
